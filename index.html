@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elite Passive | Your Gateway to Online Income</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/4c2b8b2a3c.js" crossorigin="anonymous"></script>
+
+<style>
+:root {
+  --dark-bg: #020617;
+  --card-bg: #0f172a;
+  --accent: #14b8a6; 
+  --accent-hover: #0d9488;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --border: rgba(255, 255, 255, 0.08);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--dark-bg);
+  color: var(--text-main);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* BACKGROUND DECOR */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 800px;
+  background: radial-gradient(circle at 50% -10%, rgba(20, 184, 166, 0.12), transparent 70%);
+  z-index: -1;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(2, 6, 23, 0.85);
+  backdrop-filter: blur(16px);
+  z-index: 1000;
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.5rem;
+  background: linear-gradient(90deg, #fff, var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* HERO */
+.hero {
+  padding: 160px 10% 80px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-tag {
+  color: var(--accent);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.2;
+  max-width: 900px;
+  margin-bottom: 25px;
+}
+
+.hero h1 span { color: var(--accent); }
+
+.hero p {
+  color: var(--text-muted);
+  font-size: 1.15rem;
+  max-width: 650px;
+  margin-bottom: 40px;
+}
+
+/* VIDEO SECTION */
+.video-showcase {
+  width: 100%;
+  max-width: 900px;
+  margin: 40px auto;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 */
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 0 50px rgba(20, 184, 166, 0.15);
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* GRID LAYOUTS */
+#how-it-works, #who-can-join { padding: 100px 10% 50px; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-top: 50px;
+}
+
+.card {
+  background: var(--card-bg);
+  padding: 40px;
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  transition: 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  border-color: var(--accent);
+  transform: translateY(-5px);
+}
+
+/* NEW STYLED NUMBERS FOR HOW IT WORKS */
+.step-number {
+  font-size: 5rem;
+  font-weight: 800;
+  line-height: 1;
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  opacity: 0.05;
+  color: var(--accent);
+}
+
+.step-circle {
+  width: 50px;
+  height: 50px;
+  background: rgba(20, 184, 166, 0.1);
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  font-weight: 800;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+/* IMAGE WRAPPERS (Used in Who Can Join) */
+.card-image-wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  border: 1px dashed var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-icon {
+  font-size: 1.8rem;
+  color: var(--accent);
+  margin-bottom: 15px;
+}
+
+.card ul { list-style: none; margin-top: 15px; }
+.card ul li { color: var(--text-muted); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+.card ul li i { color: var(--accent); font-size: 0.8rem; }
+
+/* BUTTON */
+.btn {
+  background: var(--accent);
+  color: white;
+  padding: 16px 35px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 700;
+  display: inline-block;
+  transition: 0.3s;
+}
+
+.btn:hover { background: var(--accent-hover); transform: translateY(-2px); }
+
+footer {
+  text-align: center;
+  padding: 60px;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
+    /* BENEFITS SECTION */
+
+.benefits {
+  padding: 80px 10% 100px;
+  text-align: center;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  margin-top: 50px;
+}
+
+.benefit-item {
+  background: var(--card-bg);
+  padding: 35px 25px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  transition: 0.3s ease;
+}
+
+.benefit-item:hover {
+  border-color: var(--accent);
+  transform: translateY(-5px);
+}
+
+.benefit-item i {
+  font-size: 2rem;
+  color: var(--accent);
+  margin-bottom: 15px;
+}
+
+.benefit-item h4 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.benefit-item p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* ICON PLACEHOLDER BOX */
+
+/* BENEFIT ICON IMAGE BOX */
+
+.benefit-icon {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 20px;
+
+  border-radius: 18px;
+  border: 1px dashed var(--border);
+  background: rgba(255, 255, 255, 0.03);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.benefit-icon img {
+  width: 55%;
+  height: 55%;
+  object-fit: contain;
+}
+/* HERO JOIN BUTTON */
+
+.join-button-wrapper {
+  margin-top: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.join-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  width: 100%;
+  max-width: 520px;
+  padding: 20px 30px;
+
+  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.1);
+
+  box-shadow: 0 10px 30px rgba(20, 184, 166, 0.25);
+
+  transition: 0.3s ease;
+}
+
+.join-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(20, 184, 166, 0.4);
+}
+
+/* ICON PLACEHOLDER */
+
+.join-icon {
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.join-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2rem; }
+}
+
+@media (max-width: 768px) {
+
+  /* Remove big side padding */
+  .hero {
+    padding: 120px 0 50px;
+  }
+
+  /* Make video edge-to-edge */
+  .video-showcase {
+    max-width: 100%;
+    width: 100%;
+    margin: 20px 0;
+  }
+
+  /* Taller video for phones */
+  .video-container {
+    padding-bottom: 65%; /* taller than 16:9 */
+    border-radius: 0;    /* optional: full-bleed look */
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">ELITE PASSIVE</div>
+  <a href="https://t.me/elitepassive" class="btn" style="padding: 10px 20px; font-size: 0.8rem;">Telegram Channel</a>
+</nav>
+
+<section class="hero" id="home">
+  <span class="section-tag">Ethiopian Passive Income Strategy</span>
+  <h1>Start Your <span>Online Income</span> Journey Today</h1>
+  <p>Watch the video below to see exactly how we use multiple online Business to build a 100% remote passive income stream.</p>
+  
+<div class="video-showcase">
+  <div class="video-container">
+    <iframe
+      src="https://www.youtube.com/embed/q1Bgl39BPpY?rel=0&playsinline=1"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+    <div class="join-button-wrapper">
+  <a href="https://t.me/elitepassive" class="join-btn">
+    
+    <span class="join-icon">
+      <img src="telegram.png" alt="Telegram">
+    </span>
+    
+    Join Our Telegram Channel Now
+    
+  </a>
+</div>
+</section>
+
+<section id="how-it-works">
+  <span class="section-tag" style="text-align:center;">The Process</span>
+  <h2 style="text-align:center; font-size: 2.5rem;">How It Works</h2>
+  
+  <div class="grid">
+    <div class="card">
+  <div class="step-number">#1</div>
+  <div class="step-circle">1</div>
+  <div class="card-icon"><i class="fas fa-lightbulb"></i></div>
+<h3>Join & Learn the System</h3>
+<p>Start by joining our network where we guide you step-by-step at no cost, helping you understand how our online business system works.</p>
+<ul>
+  <li><i class="fas fa-check"></i> High paying digial platforms</li>
+  <li><i class="fas fa-check"></i> Beginner-friendly system</li>
+  <li><i class="fas fa-check"></i> No experience required</li>
+</ul>
+</div>
+
+<div class="card">
+  <div class="step-number">#2</div>
+  <div class="step-circle">2</div>
+  <div class="card-icon"><i class="fas fa-cogs"></i></div>
+  <h3>Start Working With Our Network</h3>
+<p>Once you understand the system, you begin operating online within our network using proven methods and ongoing support.</p>
+<ul>
+  <li><i class="fas fa-check"></i> Work on global digital platforms</li>
+  <li><i class="fas fa-check"></i> Structured daily activities</li>
+  <li><i class="fas fa-check"></i> Continuous team support</li>
+</ul>
+</div>
+
+<div class="card">
+  <div class="step-number">#3</div>
+  <div class="step-circle">3</div>
+  <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+<h3>Grow & Build Your Income</h3>
+<p>As you stay consistent, you improve your results, grow within the network, and build your online income stream.</p>
+<ul>
+  <li><i class="fas fa-check"></i> Increase your earning potential</li>
+  <li><i class="fas fa-check"></i> Expand your online activities</li>
+  <li><i class="fas fa-check"></i> Multiple income streams</li>
+</ul>
+</div>
+  </div>
+</section>
+
+<section id="who-can-join">
+  <span class="section-tag" style="text-align:center;">The Opportunity</span>
+  <h2 style="text-align:center; font-size: 2.5rem;">Who Can Join?</h2>
+  
+  <div class="grid">
+<div class="card">
+  <div class="card-image-wrapper">
+    <img src="studentsELITE.jpg" alt="Students">
+  </div>
+  <div class="card-icon"><i class="fas fa-user-graduate"></i></div>
+  <h3>Students</h3>
+  <p>If you're a student and need extra money, this is a flexible online opportunity you can do after class or on weekends without affecting your studies.</p>
+</div>
+
+<div class="card">
+  <div class="card-image-wrapper">
+    <img src="WORKERelite.jpg" alt="Workers">
+  </div>
+  <div class="card-icon"><i class="fas fa-briefcase"></i></div>
+  <h3>Employees</h3>
+  <p>Working a full-time job? You can build this income in your free time and create a second source of money without quitting your job.</p>
+</div>
+
+<div class="card">
+  <div class="card-image-wrapper">
+    <img src="ELITETHREE.jpg" alt="Phone Users">
+  </div>
+  <div class="card-icon"><i class="fas fa-mobile-alt"></i></div>
+  <h3>Anyone With a Smartphone</h3>
+  <p>No computer needed. If you have a phone and internet connection, you can start and manage everything from anywhere.</p>
+</div>
+</section>
+<section class="benefits">
+  <span class="section-tag" style="text-align:center;">Why Elite Passive?</span>
+  <h2 style="text-align:center; font-size: 2.5rem;">Program Benefits</h2>
+
+  <div class="benefits-grid">
+
+    <div class="benefit-item">
+      <div class="benefit-icon">
+        <img src="ICON1.png" alt="Free Training">
+      </div>
+      <h4>100% Free Training</h4>
+      <p>All lessons and guides are provided completely free. No hidden payments or subscriptions.</p>
+    </div>
+
+    <div class="benefit-item">
+      <div class="benefit-icon">
+        <img src="no invt.png" alt="No Investment">
+      </div>
+      <h4>No Investment Required</h4>
+      <p>You can start without spending money. We focus on business models that require little to no capital.</p>
+    </div>
+
+    <div class="benefit-item">
+      <div class="benefit-icon">
+        <img src="noEDU.png" alt="No Degree Needed">
+      </div>
+      <h4>No Degree Needed</h4>
+      <p>Anyone can join — students, workers, or beginners. No special education or experience required.</p>
+    </div>
+
+    <div class="benefit-item">
+      <div class="benefit-icon">
+        <img src="experience.png" alt="Real Experience">
+      </div>
+      <h4>Learn From Real Experience</h4>
+      <p>Our methods come from the Elite Passive team’s real-world results, not theory.</p>
+    </div>
+
+    <div class="benefit-item">
+      <div class="benefit-icon">
+        <img src="dollar (2).png" alt="Earn in Dollars">
+      </div>
+      <h4>Earn in US Dollars</h4>
+      <p>Work with global platforms that pay in USD, helping you earn stronger income online.</p>
+    </div>
+
+    <div class="benefit-item">
+      <div class="benefit-icon">
+        <img src="justPHONE.png" alt="Phone or Laptop">
+      </div>
+      <h4>Works on Phone or Laptop</h4>
+      <p>No computer required. You can manage everything using just your smartphone.</p>
+    </div>
+
+  </div>
+</section>
+    
+<section style="padding: 0 10% 100px;">
+  <div style="text-align:center; background: linear-gradient(to right, #0f172a, #1e293b); padding: 50px; border-radius: 30px; border: 1px solid var(--accent);">
+    <h2>Ready to Start Your Online Income Journey?</h2>
+    <p style="margin-bottom: 30px; color: var(--text-muted);">Join our community and get the full breakdown for free.</p>
+    <a href="https://t.me/elitepassive" class="btn"><i class="fab fa-telegram-plane"></i> Join Telegram Now</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Elite Passive Program. Your Opportunity in the Digital Economy.</p>
+</footer>
+
+</body>
+</html>
